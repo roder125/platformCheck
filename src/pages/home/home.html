@@ -1,14 +1,40 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+<ion-split-pane when="sm">
+  
+    <ion-menu [content]="someContent">
+      <ion-header>
+        <ion-navbar>
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <ion-title>
+            🍗 Food
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item (click)="setCategory('nature')">
+            <ion-avatar item-left>
+              <img src="https://source.unsplash.com/category/nature/100x100">
+            </ion-avatar>
+            <h2>Nature</h2>
+          </ion-item>
+          <ion-item (click)="setCategory('food')">
+            <ion-avatar item-left>
+              <img src="https://source.unsplash.com/category/food/100x100">
+            </ion-avatar>
+            <h2>Food</h2>
+          </ion-item>
+          <ion-item (click)="setCategory('people')">
+            <ion-avatar item-left>
+              <img src="https://source.unsplash.com/category/people/100x100">
+            </ion-avatar>
+            <h2>People</h2>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+  
+    <ion-nav [root]="rootPage" #someContent main></ion-nav>
+  
+  </ion-split-pane>
